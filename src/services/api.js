@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://videobackend-x2a9.onrender.com/api',
+  baseURL: 'https://videobackend-dx5n.onrender.com/api',
 });
 
 // Add token to requests if available

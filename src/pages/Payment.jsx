@@ -83,9 +83,7 @@ const Payment = () => {
                 }}
                 className="upi-pill"
               >
-                <code style={{ fontSize: '0.95rem', color: '#7c3aed', fontWeight: 700 }}>{upiId}</code>
-                {copied ? <CheckCircle size={18} color="#10b981" /> : <Copy size={18} color="#8b5cf6" />}
-              </div>
+                </div>
               {copied && <p style={{ fontSize: '0.75rem', color: '#10b981', marginTop: '0.5rem', fontWeight: 600 }}>UPI ID Copied!</p>}
             </div>
           </div>
