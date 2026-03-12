@@ -61,11 +61,14 @@ const Payment = () => {
           <div style={{ textAlign: 'center', margin: '2rem 0' }}>
             <div className="qr-container glass" style={{ padding: '1.25rem', borderRadius: '1.25rem', display: 'inline-block', background: 'white', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
               <img 
-                src="/qr.jpeg" 
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`}
                 alt="Payment QR Code" 
                 style={{ width: '200px', height: '200px', display: 'block' }} 
               />
             </div>
+            <p style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: '#64748b', fontWeight: 500 }}>
+              Scan with any UPI App
+            </p>
           </div>
 
           <div className="features-list" style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.03)', padding: '1rem', borderRadius: '1rem' }}>
