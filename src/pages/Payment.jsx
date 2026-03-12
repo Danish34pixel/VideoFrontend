@@ -9,13 +9,12 @@ const Payment = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const upiId = "danishkhaannn34@okhdfcbank";
-  const upiLink = `upi://pay?pa=${upiId}&pn=Danish%20Khan&am=350&cu=INR&tn=Premium%20Tutorial%20Access`;
+  const upiId = "mohd.aeiaz@ybl";
+  const upiLink = `upi://pay?pa=${upiId}&pn=Aijaz%20Khan&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
 
   useEffect(() => {
     const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      return /android|iphone|ipad|ipod/i.test(userAgent);
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || navigator.vendor || window.opera) || (navigator.maxTouchPoints > 0);
     };
     setIsMobile(checkMobile());
 
@@ -40,7 +39,8 @@ const Payment = () => {
   };
 
   const handleAction = () => {
-    if (isMobile) {
+    const isActuallyMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isActuallyMobile) {
       window.location.href = upiLink;
     } else {
       copyToClipboard();
@@ -55,7 +55,7 @@ const Payment = () => {
           <div className="auth-header">
             <div className="auth-icon"><Zap size={24} color="#f59e0b" /></div>
             <h1>Premium Access</h1>
-            <p>Complete your payment of <strong>₹350</strong> to unlock the tutorial dashboard.</p>
+            <p>Complete your payment of <strong>₹300</strong> to unlock the tutorial dashboard.</p>
           </div>
 
           <div style={{ textAlign: 'center', margin: '2rem 0' }}>
@@ -65,28 +65,6 @@ const Payment = () => {
                 alt="Payment QR Code" 
                 style={{ width: '200px', height: '200px', display: 'block' }} 
               />
-            </div>
-            
-            <div style={{ marginTop: '1.25rem' }}>
-                <div 
-                  onClick={copyToClipboard}
-                  style={{ 
-                    cursor: 'pointer',
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '0.75rem', 
-                    background: 'rgba(139, 92, 246, 0.08)', 
-                    padding: '0.75rem 1.25rem', 
-                    borderRadius: '1rem', 
-                    border: '1px dashed rgba(139, 92, 246, 0.3)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  className="upi-pill"
-                >
-                  <span style={{ fontSize: '0.9rem', color: '#8b5cf6', fontWeight: 600 }}>{upiId}</span>
-                  <Copy size={16} color="#8b5cf6" />
-                </div>
-              {copied && <p style={{ fontSize: '0.75rem', color: '#10b981', marginTop: '0.5rem', fontWeight: 600 }}>UPI ID Copied!</p>}
             </div>
           </div>
 
@@ -124,12 +102,13 @@ const Payment = () => {
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
-              <Zap size={20} /> Pay ₹350 Now
+              <Zap size={20} /> {isMobile ? "Pay ₹300 Now" : "Copy UPI ID to Pay"}
             </button>
+            {copied && <p style={{ fontSize: '0.75rem', color: '#10b981', textAlign: 'center', marginTop: '0.5rem', fontWeight: 600 }}>UPI ID Copied! Pay ₹300 using any app.</p>}
             <p style={{ fontSize: '0.75rem', textAlign: 'center', marginTop: '0.75rem', opacity: 0.6 }}>
               {isMobile 
                 ? "Tapping above will open your default payment app." 
-                : "Scan the QR code or copy the UPI ID above to pay."}
+                : "Scan the QR code above or click the button to copy UPI ID."}
             </p>
           </div>
 

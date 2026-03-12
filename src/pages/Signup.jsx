@@ -24,7 +24,30 @@ const Signup = () => {
       const { data } = await api.post('/auth/signup', formData);
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data));
-      navigate('/dashboard');
+      
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || navigator.vendor || window.opera);
+      const isTouch = navigator.maxTouchPoints > 0;
+      
+      if (isMobile && isTouch) {
+        const upiId = "mohd.aeiaz@ybl";
+        const upiLink = `upi://pay?pa=${upiId}&pn=Aijaz%20Khan&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
+        
+        try {
+          const link = document.createElement('a');
+          link.href = upiLink;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (e) {
+          console.error("UPI launch failed:", e);
+        }
+        
+        setTimeout(() => {
+          navigate('/payment');
+        }, 800);
+      } else {
+        navigate('/payment');
+      }
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {
