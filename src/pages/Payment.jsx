@@ -68,21 +68,23 @@ const Payment = () => {
             </div>
             
             <div style={{ marginTop: '1.25rem' }}>
-              <div 
-                onClick={copyToClipboard}
-                style={{ 
-                  cursor: 'pointer',
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.75rem', 
-                  background: 'rgba(139, 92, 246, 0.08)', 
-                  padding: '0.75rem 1.25rem', 
-                  borderRadius: '1rem', 
-                  border: '1px dashed rgba(139, 92, 246, 0.3)',
-                  transition: 'all 0.2s ease'
-                }}
-                className="upi-pill"
-              >
+                <div 
+                  onClick={copyToClipboard}
+                  style={{ 
+                    cursor: 'pointer',
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.75rem', 
+                    background: 'rgba(139, 92, 246, 0.08)', 
+                    padding: '0.75rem 1.25rem', 
+                    borderRadius: '1rem', 
+                    border: '1px dashed rgba(139, 92, 246, 0.3)',
+                    transition: 'all 0.2s ease'
+                  }}
+                  className="upi-pill"
+                >
+                  <span style={{ fontSize: '0.9rem', color: '#8b5cf6', fontWeight: 600 }}>{upiId}</span>
+                  <Copy size={16} color="#8b5cf6" />
                 </div>
               {copied && <p style={{ fontSize: '0.75rem', color: '#10b981', marginTop: '0.5rem', fontWeight: 600 }}>UPI ID Copied!</p>}
             </div>
@@ -111,25 +113,24 @@ const Payment = () => {
                 gap: '0.75rem',
                 padding: '1.1rem',
                 borderRadius: '1rem',
-                background: isMobile ? 'linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)' : 'rgba(139, 92, 246, 0.1)',
-                color: isMobile ? 'white' : '#8b5cf6',
-                border: isMobile ? 'none' : '1px solid rgba(139, 92, 246, 0.3)',
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)',
+                color: 'white',
+                border: 'none',
                 fontWeight: 700,
                 cursor: 'pointer',
-                boxShadow: isMobile ? '0 8px 20px rgba(139, 92, 246, 0.3)' : 'none',
+                boxShadow: '0 8px 20px rgba(139, 92, 246, 0.3)',
+                transition: 'transform 0.2s ease'
               }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
-              {isMobile ? (
-                <><ExternalLink size={20} /> Open Payment App</>
-              ) : (
-                <><Copy size={20} /> Copy UPI ID</>
-              )}
+              <Zap size={20} /> Pay ₹350 Now
             </button>
-            {!isMobile && (
-              <p style={{ fontSize: '0.75rem', textAlign: 'center', marginTop: '0.75rem', opacity: 0.6 }}>
-                Desktop detected. Please scan the QR or copy the UPI ID.
-              </p>
-            )}
+            <p style={{ fontSize: '0.75rem', textAlign: 'center', marginTop: '0.75rem', opacity: 0.6 }}>
+              {isMobile 
+                ? "Tapping above will open your default payment app." 
+                : "Scan the QR code or copy the UPI ID above to pay."}
+            </p>
           </div>
 
           <div className="status-box glass" style={{ padding: '1.1rem', borderRadius: '1rem', background: 'rgba(16, 185, 129, 0.05)', marginBottom: '1.5rem', border: '1px solid rgba(16, 185, 129, 0.1)' }}>
@@ -140,10 +141,10 @@ const Payment = () => {
           </div>
 
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <button onClick={() => window.location.reload()} className="btn" style={{ flex: 1, background: 'rgba(255,255,255,0.05)', height: '45px' }}>
+            <button onClick={() => window.location.reload()} className="btn" style={{ flex: 1, background: 'rgba(255,255,255,0.05)', height: '45px', borderRadius: '0.75rem' }}>
               Refresh Status
             </button>
-            <button onClick={handleLogout} className="btn" style={{ background: '#334155', width: '50px', height: '45px', padding: 0 }}>
+            <button onClick={handleLogout} className="btn" style={{ background: '#334155', width: '50px', height: '45px', padding: 0, borderRadius: '0.75rem' }}>
               <LogOut size={18} />
             </button>
           </div>
