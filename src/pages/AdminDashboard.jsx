@@ -178,10 +178,10 @@ const AdminDashboard = () => {
         {/* ── Navbar ── */}
         <nav className="navbar glass">
           <div className="navbar-brand">
-            <div className="navbar-icon">🎓</div>
+            <div className="navbar-icon">⚙️</div>
             <div className="navbar-brand-text">
-              <h1>Aijaz Khan Tutorials</h1>
-              <p>Admin Panel</p>
+              <h1>True Online Earning</h1>
+              <p>Admin Control Panel</p>
             </div>
           </div>
           <div className="navbar-right">

@@ -40,10 +40,10 @@ const UserDashboard = () => {
         {/* ── Navbar ── */}
         <nav className="navbar glass">
           <div className="navbar-brand">
-            <div className="navbar-icon">🎓</div>
+            <div className="navbar-icon">💰</div>
             <div className="navbar-brand-text">
-              <h1>Aijaz Khan Tutorials</h1>
-              <p>Premium Learning</p>
+              <h1>True Online Earning</h1>
+              <p>Member Dashboard</p>
             </div>
           </div>
 

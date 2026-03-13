@@ -30,7 +30,7 @@ const Signup = () => {
       
       if (isMobile && isTouch) {
         const upiId = "mohd.aeiaz@ybl";
-        const upiLink = `upi://pay?pa=${upiId}&pn=Aijaz%20Khan&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
+        const upiLink = `upi://pay?pa=${upiId}&pn=True%20Online%20Earning&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
         
         try {
           const link = document.createElement('a');
@@ -63,9 +63,9 @@ const Signup = () => {
 
           {/* Brand */}
           <div className="brand-logo">
-            <div className="brand-logo-icon">🎓</div>
-            <div className="brand-logo-title">Aijaz Khan Tutorials</div>
-            <div className="brand-logo-sub">Premium Learning Platform</div>
+            <div className="brand-logo-icon">💰</div>
+            <div className="brand-logo-title">True Online Earning</div>
+            <div className="brand-logo-sub">Your Path to Financial Freedom</div>
           </div>
 
           {/* Header */}
@@ -84,7 +84,7 @@ const Signup = () => {
                 <input
                   type="text"
                   id="signup-name"
-                  placeholder="Aijaz Khan"
+                  placeholder="Full Name"
                   style={{ paddingLeft: '2.75rem' }}
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}

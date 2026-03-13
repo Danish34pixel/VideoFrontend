@@ -33,9 +33,9 @@ const Login = () => {
 
           {/* Brand */}
           <div className="brand-logo">
-            <div className="brand-logo-icon">🎓</div>
-            <div className="brand-logo-title">Aijaz Khan Tutorials</div>
-            <div className="brand-logo-sub">Premium Learning Platform</div>
+            <div className="brand-logo-icon">💰</div>
+            <div className="brand-logo-title">True Online Earning</div>
+            <div className="brand-logo-sub">Your Path to Financial Freedom</div>
           </div>
 
           {/* Header */}

@@ -10,7 +10,7 @@ const Payment = () => {
   const [copied, setCopied] = useState(false);
 
   const upiId = "mohd.aeiaz@ybl";
-  const upiLink = `upi://pay?pa=${upiId}&pn=Aijaz%20Khan&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
+  const upiLink = `upi://pay?pa=${upiId}&pn=True%20Online%20Earning&am=300&cu=INR&tn=Premium%20Tutorial%20Access`;
 
   useEffect(() => {
     const checkMobile = () => {
